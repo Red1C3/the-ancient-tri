@@ -1,4 +1,5 @@
 #pragma once
+#include<assert.h>
 #include <SFML/Window.hpp>
 #include<GL/glew.h>
 #define RENDERER Renderer::instance()
