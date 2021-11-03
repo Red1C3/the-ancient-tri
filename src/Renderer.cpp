@@ -17,6 +17,7 @@ void Renderer::init(const char *title, int height, int width)
     ctxSettings.minorVersion = 4;
     ctxSettings.stencilBits = 8;
     window = new Window(VideoMode(width, height), title, Style::Default, ctxSettings);
+    glewInit();
     glEnable(GL_DEPTH_TEST);
 }
 void Renderer::render(function<void()> renderFunc)
