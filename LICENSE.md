@@ -1,4 +1,3 @@
-/*
 the-ancient-tri an OpenGL legacy simulator
 
 Copyright (C) 2021 Mohammad Issawi
@@ -15,11 +14,3 @@ Copyright (C) 2021 Mohammad Issawi
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-#pragma once
-#include<vector>
-#include<fstream>
-#include<assert.h>
-namespace tat{
-    std::vector<char> readBinaryFile(const char * path);
-}
