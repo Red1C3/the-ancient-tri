@@ -26,3 +26,5 @@ While I'm okay with it, I really suggest you not to, the project is not worth it
 
 ## License
 Under GPLv3, check [LICENSE](./LICENSE.md)
+
+### Made with sick-of-college kittens
