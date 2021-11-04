@@ -31,8 +31,8 @@ void Renderer::init(const char *title, int height, int width)
     ContextSettings ctxSettings;
     ctxSettings.antialiasingLevel = 1;
     ctxSettings.depthBits = 16;
-    ctxSettings.majorVersion = 4;
-    ctxSettings.minorVersion = 4;
+    ctxSettings.majorVersion = 3;
+    ctxSettings.minorVersion = 3;
     ctxSettings.stencilBits = 8;
     window = new Window(VideoMode(width, height), title, Style::Default, ctxSettings);
     glewInit();

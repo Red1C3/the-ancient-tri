@@ -1,5 +1,5 @@
 # the-ancient-tri
-A legacy OpenGL simulator for OpenGL 4.4, written in C++.
+A legacy OpenGL simulator for OpenGL 3.3, written in C++.
 
 ## Why?
 My Uni forces us to use legacy OpenGL (eww!), and I didn't want to learn it, so this project is supposed to be a modern boilerplate for the legacy one (it should run faster too)
