@@ -19,7 +19,8 @@ Copyright (C) 2021 Mohammad Issawi
 #pragma once
 #include<assert.h>
 #include <SFML/Window.hpp>
-#include<GL/glew.h>
+#include<glbinding/gl33/gl.h>
+#include<glbinding/glbinding.h>
 #define RENDERER Renderer::instance()
 namespace tat
 {
@@ -33,6 +34,7 @@ namespace tat
         static Renderer &instance();
         void init(const char *title, int height, int width);
         void render(std::function<void()> renderFunc);
+        sf::Window* getInternalWindow();
         void terminate();
     };
 }

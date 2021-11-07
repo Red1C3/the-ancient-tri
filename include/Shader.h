@@ -17,7 +17,7 @@ Copyright (C) 2021 Mohammad Issawi
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
-#include<GL/glew.h>
+#include<glbinding/gl33/gl.h>
 #include<assert.h>
 #include<helpers.h>
 namespace tat
@@ -25,7 +25,7 @@ namespace tat
     class Shader
     {
     protected:
-        GLint id;
+        gl::GLint id;
     public:
         Shader(const char *vertexShader, const char *fragmentShader, bool fromFile = true);
         void use();

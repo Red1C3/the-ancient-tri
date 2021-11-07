@@ -20,6 +20,7 @@ Copyright (C) 2021 Mohammad Issawi
 using namespace tat;
 using namespace sf;
 using namespace std;
+using namespace gl;
 Renderer::Renderer() {}
 Renderer &Renderer::instance()
 {
@@ -35,7 +36,7 @@ void Renderer::init(const char *title, int height, int width)
     ctxSettings.minorVersion = 3;
     ctxSettings.stencilBits = 8;
     window = new Window(VideoMode(width, height), title, Style::Default, ctxSettings);
-    glewInit();
+    glbinding::initialize(nullptr);
     glEnable(GL_DEPTH_TEST);
 }
 void Renderer::render(function<void()> renderFunc)
@@ -61,6 +62,9 @@ void Renderer::render(function<void()> renderFunc)
         assert(glGetError() == 0);
         window->display();
     }
+}
+Window* Renderer::getInternalWindow(){
+    return window;
 }
 void Renderer::terminate()
 {

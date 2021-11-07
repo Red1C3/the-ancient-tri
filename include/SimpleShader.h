@@ -27,7 +27,7 @@ namespace tat
     {
     private:
         SimpleShader();
-        GLuint VPLocation, modelLocation;
+        gl::GLuint VPLocation, modelLocation;
 
     public:
         class Vertex
@@ -40,6 +40,6 @@ namespace tat
         static SimpleShader &instance();
         void setVP(glm::mat4 VP);
         void setModel(glm::mat4 model);
-        GLuint createVAO(const std::vector<Vertex>& vertices,const std::vector<unsigned>& indices);
+        gl::GLuint createVAO(const std::vector<Vertex>& vertices,const std::vector<unsigned>& indices);
     };
 }

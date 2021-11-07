@@ -18,7 +18,7 @@ Note: if the root directory contains a file named ```main.cpp``` the build scrip
 
 ## Dependencies:
 - SFML (link against window module)
-- GLEW
+- glbinding
 - GLM
 
 ## Contribution

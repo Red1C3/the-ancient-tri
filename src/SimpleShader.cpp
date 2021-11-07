@@ -20,8 +20,9 @@ Copyright (C) 2021 Mohammad Issawi
 using namespace tat;
 using namespace glm;
 using namespace std;
+using namespace gl;
 const char *__simple_vertex_shader = R"(
-#version 440
+#version 330
 layout(location=0) in vec3 position_model;
 layout(location=1) in vec3 color;
 layout(location=2) in vec2 uv;
@@ -34,7 +35,7 @@ void main(){
 }
 )";
 const char *__simple_fragment_shader = R"(
-#version 440
+#version 330
 in vec3 color_out;
 out vec4 color;
 void main(){

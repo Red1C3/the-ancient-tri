@@ -19,6 +19,7 @@ Copyright (C) 2021 Mohammad Issawi
 #include<Shader.h>
 using namespace tat;
 using namespace std;
+using namespace gl;
 Shader::Shader(const char *vertexShader, const char *fragmentShader, bool fromFile)
 {
     vector<char> vertexShaderArray, fragmentShaderArray;
