@@ -1,3 +1,4 @@
 .vscode
 builddir
 main.cpp
+*.glb

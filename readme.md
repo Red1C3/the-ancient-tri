@@ -8,6 +8,7 @@ My Uni forces us to use legacy OpenGL (eww!), and I didn't want to learn it, so 
 Let's say for a game or a simple graphics needing app, if you're not looking for great visuals, I guess it'll be enough, however, you still need to know the basics of modern OpenGL (at least the new stuff in 2.0 or later) since I'm not wrapping everything, some code still needs to be written with plain OpenGL (this may change in the future though)
 
 ## Features
+- Import Meshes from disk with ``Mesh`` class (Assimp supported formats only)
 - Simple Shader for plain mesh displaying (no lighting or shadowing)
 - User-defined Shaders can be added by extending ``Shader`` class as needed (check ``SimpleShader`` singleton)
 
@@ -17,9 +18,10 @@ Using Meson, check dependencies first, build script is provided, it may not work
 Note: if the root directory contains a file named ```main.cpp``` the build script will automatically build an executable alongside the dynamic library
 
 ## Dependencies:
-- SFML (link against window module)
-- glbinding
-- GLM
+- [SFML](https://www.sfml-dev.org/) (link against window module)
+- [glbinding](https://github.com/cginternals/glbinding)
+- [GLM](https://github.com/g-truc/glm)
+- [Assimp](https://github.com/assimp/assimp)
 
 ## Contribution
 While I'm okay with it, I really suggest you not to, the project is not worth it.
