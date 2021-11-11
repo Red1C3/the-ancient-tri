@@ -16,30 +16,15 @@ Copyright (C) 2021 Mohammad Issawi
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#pragma once
-#include <optional>
-#include <vector>
-#include <glm/glm.hpp>
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
-namespace tat
-{
-    class Mesh
-    {
-    private:
-        static Assimp::Importer importer;
-        std::vector<glm::vec3> pos;
-        std::optional<std::vector<unsigned>> indices;
-        std::optional<std::vector<glm::vec3>> normals;
-        std::optional<std::vector<glm::vec2>> uvs;
-
-    public:
-        Mesh(const char *path);
-        std::vector<glm::vec3> &getPos();
-        std::vector<glm::vec3> &getNormals();
-        std::vector<glm::vec2> &getUVs();
-        std::vector<unsigned> &getIndices();
-        unsigned getVerticesCount();
-    };
+#version 330
+layout(location=0) in vec3 pos_model;
+layout(location=1) in vec3 normal_model;
+layout(location=2) in vec2 uv;
+out vec3 pos_world;
+out vec3 normal_world;
+uniform mat4 VP,model;
+void main(){
+  pos_world=(model*vec4(pos_model,1)).xyz;
+  normal_world=(model*vec4(normal_model,0)).xyz;
+  gl_Position=VP*vec4(pos_world,1);
 }

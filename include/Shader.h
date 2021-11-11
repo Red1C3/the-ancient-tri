@@ -29,5 +29,6 @@ namespace tat
     public:
         Shader(const char *vertexShader, const char *fragmentShader, bool fromFile = true);
         void use();
+        gl::GLint getID();
     };
 }

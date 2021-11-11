@@ -1,6 +1,9 @@
 # the-ancient-tri
 A legacy OpenGL simulator for OpenGL 3.3, written in C++.
 
+# ScreenShots
+![Lambert](snaps/Lambert-1.png)
+
 ## Why?
 My Uni forces us to use legacy OpenGL (eww!), and I didn't want to learn it, so this project is supposed to be a modern boilerplate for the legacy one (it should run faster too)
 
@@ -9,6 +12,7 @@ Let's say for a game or a simple graphics needing app, if you're not looking for
 
 ## Features
 - Import Meshes from disk with ``Mesh`` class (Assimp supported formats only)
+- Pure Lambert Lighting model
 - Simple Shader for plain mesh displaying (no lighting or shadowing)
 - User-defined Shaders can be added by extending ``Shader`` class as needed (check ``SimpleShader`` singleton)
 

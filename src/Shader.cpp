@@ -16,7 +16,7 @@ Copyright (C) 2021 Mohammad Issawi
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include<Shader.h>
+#include <Shader.h>
 using namespace tat;
 using namespace std;
 using namespace gl;
@@ -24,10 +24,13 @@ Shader::Shader(const char *vertexShader, const char *fragmentShader, bool fromFi
 {
     vector<char> vertexShaderArray, fragmentShaderArray;
     const char *vertexShaderCode, *fragmentShaderCode;
-    if(!fromFile){
+    if (!fromFile)
+    {
         vertexShaderCode = vertexShader;
         fragmentShaderCode = fragmentShader;
-    }else{
+    }
+    else
+    {
         vertexShaderArray = readBinaryFile(vertexShader);
         fragmentShaderArray = readBinaryFile(fragmentShader);
         vertexShaderCode = vertexShaderArray.data();
@@ -35,15 +38,24 @@ Shader::Shader(const char *vertexShader, const char *fragmentShader, bool fromFi
     }
     {
         auto vertexShader = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertexShader, 1, &vertexShaderCode, nullptr);
+        int shaderLength = vertexShaderArray.size();
+        glShaderSource(vertexShader, 1, &vertexShaderCode, &shaderLength);
         glCompileShader(vertexShader);
+        char infoLog[1024];
+        glGetShaderInfoLog(vertexShader, 1024, nullptr, infoLog);
+        printf("%s \n", infoLog);
         auto fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragmentShader, 1, &fragmentShaderCode, nullptr);
+        shaderLength = fragmentShaderArray.size();
+        glShaderSource(fragmentShader, 1, &fragmentShaderCode, &shaderLength);
         glCompileShader(fragmentShader);
+        glGetShaderInfoLog(fragmentShader, 1024, nullptr, infoLog);
+        printf("%s \n", infoLog);
         id = glCreateProgram();
         glAttachShader(id, vertexShader);
         glAttachShader(id, fragmentShader);
         glLinkProgram(id);
+        glGetProgramInfoLog(id, 1024, nullptr, infoLog);
+        printf("%s \n", infoLog);
         glDetachShader(id, vertexShader);
         glDetachShader(id, fragmentShader);
         glDeleteShader(vertexShader);
@@ -51,6 +63,11 @@ Shader::Shader(const char *vertexShader, const char *fragmentShader, bool fromFi
     }
     assert(glGetError() == 0);
 }
-void Shader::use(){
+void Shader::use()
+{
     glUseProgram(id);
+}
+GLint Shader::getID()
+{
+    return id;
 }

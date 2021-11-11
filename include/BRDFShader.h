@@ -17,29 +17,21 @@ Copyright (C) 2021 Mohammad Issawi
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
-#include <optional>
-#include <vector>
 #include <glm/glm.hpp>
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
+#include <Shader.h>
 namespace tat
 {
-    class Mesh
+    class BRDFShader : public Shader
     {
-    private:
-        static Assimp::Importer importer;
-        std::vector<glm::vec3> pos;
-        std::optional<std::vector<unsigned>> indices;
-        std::optional<std::vector<glm::vec3>> normals;
-        std::optional<std::vector<glm::vec2>> uvs;
-
     public:
-        Mesh(const char *path);
-        std::vector<glm::vec3> &getPos();
-        std::vector<glm::vec3> &getNormals();
-        std::vector<glm::vec2> &getUVs();
-        std::vector<unsigned> &getIndices();
-        unsigned getVerticesCount();
+        BRDFShader(const char *vertexShader, const char *fragmentShader, bool fromFile = true);
+        class Vertex
+        {
+        public:
+            glm::vec3 pos;
+            glm::vec3 normal;
+            glm::vec2 uv;
+        };
+        static gl::GLuint createVAO(const std::vector<Vertex> &vertices, const std::vector<unsigned> &indices);
     };
 }
