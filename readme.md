@@ -2,6 +2,7 @@
 A legacy OpenGL simulator for OpenGL 3.3, written in C++.
 
 # ScreenShots
+![BlinnPhong](snaps/Blinn-Phong-1.png)
 ![Lambert](snaps/Lambert-1.png)
 
 ## Why?
@@ -12,9 +13,9 @@ Let's say for a game or a simple graphics needing app, if you're not looking for
 
 ## Features
 - Import Meshes from disk with ``Mesh`` class (Assimp supported formats only)
-- Pure Lambert Lighting model
-- Simple Shader for plain mesh displaying (no lighting or shadowing)
-- User-defined Shaders can be added by extending ``Shader`` class as needed (check ``SimpleShader`` singleton)
+- Pure Lambert lighting model
+- Blinn-Phong lighting model
+- User-defined Shaders can be added by extending ``Shader`` or ``BRDFShader`` class as needed
 
 ## Building
 Using Meson, check dependencies first, build script is provided, it may not work on Windows, since it uses a Bash script, if it doesn't, write a similar batch script or whatever that works with you.
