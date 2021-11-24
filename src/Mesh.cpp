@@ -45,6 +45,20 @@ Mesh::Mesh(const char *path)
                 mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z};
         }
     }
+    if (mesh->HasTangentsAndBitangents())
+    {
+        tangents = vector<vec3>();
+        tangents.value().resize(pos.size());
+        bitangents = vector<vec3>();
+        bitangents.value().resize(pos.size());
+        for (uint i = 0; i < tangents.value().size(); ++i)
+        {
+            tangents.value()[i] = {
+                mesh->mTangents[i].x, mesh->mTangents[i].y, mesh->mTangents[i].z};
+            bitangents.value()[i] = {
+                mesh->mBitangents[i].x, mesh->mBitangents[i].y, mesh->mBitangents[i].z};
+        }
+    }
     if (mesh->HasTextureCoords(0))
     {
         uvs = vector<vec2>();
@@ -75,6 +89,16 @@ vector<vec3> &Mesh::getNormals()
 {
     assert(normals);
     return normals.value();
+}
+vector<vec3> &Mesh::getTangents()
+{
+    assert(tangents);
+    return tangents.value();
+}
+vector<vec3> &Mesh::getBitangents()
+{
+    assert(bitangents);
+    return bitangents.value();
 }
 vector<vec2> &Mesh::getUVs()
 {

@@ -31,6 +31,8 @@ namespace tat
             glm::vec3 pos;
             glm::vec3 normal;
             glm::vec2 uv;
+            glm::vec3 tangents;
+            glm::vec3 bitangents;
         };
         static gl::GLuint createVAO(const std::vector<Vertex> &vertices, const std::vector<unsigned> &indices);
     };

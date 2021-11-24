@@ -20,11 +20,20 @@ Copyright (C) 2021 Mohammad Issawi
 layout(location=0) in vec3 pos_model;
 layout(location=1) in vec3 normal_model;
 layout(location=2) in vec2 uv;
-out vec3 pos_world;
-out vec3 normal_world;
+layout(location=3) in vec3 tangent_model;
+layout(location=4) in vec3 bitangent_model;
+out vec3 pos_normal;
+out vec3 normal_normal;
+out mat3 iTBN;
 uniform mat4 VP,model;
 void main(){
-  pos_world=(model*vec4(pos_model,1)).xyz;
-  normal_world=(model*vec4(normal_model,0)).xyz;
+  vec3 pos_world=(model*vec4(pos_model,1)).xyz;
+  vec3 normal_world=(model*vec4(normal_model,0)).xyz;
   gl_Position=VP*vec4(pos_world,1);
+  vec3 tangent_world=(model*vec4(tangent_model,0)).xyz;
+  vec3 bitangent_world=(model*vec4(bitangent_model,0)).xyz;
+  mat3 TBN=mat3(tangent_world,bitangent_world,normal_world);
+  iTBN=transpose(TBN);
+  pos_normal=iTBN*pos_world;
+  normal_normal=iTBN*normal_world;
 }

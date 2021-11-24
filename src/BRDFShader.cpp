@@ -37,7 +37,11 @@ GLuint BRDFShader::createVAO(const vector<Vertex> &vertices, const vector<unsign
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)sizeof(vec3));
     glEnableVertexAttribArray(2);
-    glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)(sizeof(vec3) * 2));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)(sizeof(vec3) * 2));
+    glEnableVertexAttribArray(3);
+    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)(sizeof(vec3) * 2 + sizeof(vec2)));
+    glEnableVertexAttribArray(4);
+    glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)(sizeof(vec3) * 3 + sizeof(vec2)));
     return VAO;
 }
 BRDFShader::BRDFShader(const char *vertexShader, const char *fragmentShader, bool fromFile) : Shader(vertexShader, fragmentShader, fromFile) {}
