@@ -1,7 +1,10 @@
 #version 330
 in vec3 pos_world;
 in vec3 normal_world;
+in vec2 uv_out;
 out vec4 color;
+uniform sampler2D albedo;
+uniform int useAlbedo=0;
 uniform vec3 light_world;
 uniform vec3 observer_world;
 uniform vec3 light_color=vec3(1,1,1);
@@ -13,7 +16,11 @@ uniform float ambientPercentage=0.1;
 uniform float specularPercentage=0.4;
 void main(){
   vec3 fragToLight=light_world-pos_world;
-  vec3 resColor=light_color*material_color;
+  vec3 resColor;
+  if(useAlbedo==0)
+    resColor=light_color*material_color;
+  else
+    resColor=light_color*texture(albedo,uv_out).xyz;
   float diffuseFactor=dot(normalize(normal_world),normalize(fragToLight));
   vec3 viewVec=normalize(pos_world-observer_world);
 	vec3 halfWay=normalize(fragToLight-viewVec);

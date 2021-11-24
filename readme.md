@@ -23,7 +23,7 @@ Using Meson, check dependencies first, build script is provided, it may not work
 Note: if the root directory contains a file named ```main.cpp``` the build script will automatically build an executable alongside the dynamic library
 
 ## Dependencies:
-- [SFML](https://www.sfml-dev.org/) (link against window module)
+- [SFML](https://www.sfml-dev.org/) (link against window and graphics modules)
 - [glbinding](https://github.com/cginternals/glbinding)
 - [GLM](https://github.com/g-truc/glm)
 - [Assimp](https://github.com/assimp/assimp)

@@ -1,4 +1,4 @@
 .vscode
 builddir
 main.cpp
-*.glb
+Assets
