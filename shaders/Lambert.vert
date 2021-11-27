@@ -23,7 +23,6 @@ layout(location=2) in vec2 uv;
 layout(location=3) in vec3 tangent_model;
 layout(location=4) in vec3 bitangent_model;
 out vec3 pos_normal;
-out vec3 normal_normal;
 out mat3 iTBN;
 uniform mat4 VP,model;
 void main(){
@@ -35,5 +34,4 @@ void main(){
   mat3 TBN=mat3(tangent_world,bitangent_world,normal_world);
   iTBN=transpose(TBN);
   pos_normal=iTBN*pos_world;
-  normal_normal=iTBN*normal_world;
 }

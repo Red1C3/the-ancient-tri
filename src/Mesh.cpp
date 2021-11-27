@@ -81,31 +81,31 @@ Mesh::Mesh(const char *path)
         }
     }
 }
-vector<vec3> &Mesh::getPos()
+vector<vec3> Mesh::getPos()
 {
     return pos;
 }
-vector<vec3> &Mesh::getNormals()
+vector<vec3> Mesh::getNormals()
 {
     assert(normals);
     return normals.value();
 }
-vector<vec3> &Mesh::getTangents()
+vector<vec3> Mesh::getTangents()
 {
     assert(tangents);
     return tangents.value();
 }
-vector<vec3> &Mesh::getBitangents()
+vector<vec3> Mesh::getBitangents()
 {
     assert(bitangents);
     return bitangents.value();
 }
-vector<vec2> &Mesh::getUVs()
+vector<vec2> Mesh::getUVs()
 {
     assert(uvs);
     return uvs.value();
 }
-vector<unsigned> &Mesh::getIndices()
+vector<unsigned> Mesh::getIndices()
 {
     assert(indices);
     return indices.value();

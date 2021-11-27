@@ -18,7 +18,6 @@ Copyright (C) 2021 Mohammad Issawi
 */
 #version 330
 in vec3 pos_normal;
-in vec3 normal_normal;
 in mat3 iTBN;
 out vec4 color;
 uniform vec3 light_world;
@@ -29,6 +28,6 @@ void main(){
   vec3 light_normal=iTBN*light_world;
   vec3 fragToLight=light_normal-pos_normal;
   vec3 resColor=light_color*material_color;
-  float diffuseFactor=dot(normalize(normal_normal),normalize(fragToLight));
+  float diffuseFactor=dot(vec3(0,0,1),normalize(fragToLight));
   color=vec4(resColor*light_intensity*diffuseFactor,1);
 }

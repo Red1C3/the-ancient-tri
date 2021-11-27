@@ -38,12 +38,12 @@ namespace tat
 
     public:
         Mesh(const char *path);
-        std::vector<glm::vec3> &getPos();
-        std::vector<glm::vec3> &getNormals();
-        std::vector<glm::vec3> &getTangents();
-        std::vector<glm::vec3> &getBitangents();
-        std::vector<glm::vec2> &getUVs();
-        std::vector<unsigned> &getIndices();
+        std::vector<glm::vec3> getPos();
+        std::vector<glm::vec3> getNormals();
+        std::vector<glm::vec3> getTangents();
+        std::vector<glm::vec3> getBitangents();
+        std::vector<glm::vec2> getUVs();
+        std::vector<unsigned> getIndices();
         unsigned getVerticesCount();
     };
 }
