@@ -1,6 +1,5 @@
 /*
-the-ancient-tri an OpenGL legacy simulator
-
+the-ancient-tri A low level OpenGL render engine
 Copyright (C) 2021 Mohammad Issawi
 
     This program is free software: you can redistribute it and/or modify
