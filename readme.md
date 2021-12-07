@@ -6,9 +6,11 @@ A low level OpenGL render engine
 - Pure Lambert shading model
 - Blinn-Phong shading model
 - Oren-Nayar shading model
+- Cartoonish shading model
 - User-defined Shaders can be added by extending ``Shader`` or ``BRDFShader`` class as needed
 
 # ScreenShots
+![Cartoon](snaps/Cartoon-1.png)
 ![OrenNayer](snaps/Oren-Nayar-1.png)
 ![BlinnPhong](snaps/Blinn-Phong-1.png)
 ![Lambert](snaps/Lambert-1.png)
